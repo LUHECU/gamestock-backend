@@ -22,11 +22,11 @@ export class GamesService {
 
   //Return a games list
   async findAll(): Promise<GameEntity[]> {
-    const gamesList = await this.gameRepository.find({where: {status: true}});//Get all games into a list where status is true
+    const gamesList = await this.gameRepository.find();//Get all games into a list where status is true
 
     //Check if the list is empty
     if(!gamesList){
-      throw new NotFoundException(new MessageDto('No games found'))
+      throw new NotFoundException(new MessageDto('No games found'));
     }
     return gamesList;
   }
@@ -37,18 +37,18 @@ export class GamesService {
 
     //Check if the game exists
     if(!game || !game.status){
-      throw new NotFoundException(new MessageDto('No game found'))
+      throw new NotFoundException(new MessageDto('No game found'));
     }
     return game;
   }
 
   //Return a game by name
-  async findByName(name: string): Promise<GameEntity> {
+  async findByName(name: string): Promise<any> {
     const game = await this.gameRepository.findOneBy({name: name});//Get a game by name
 
     //Check if the game exists
-    if(!game || !game.status) throw new NotFoundException(new MessageDto('No game found'))
-    return game;
+    if(!game || !game.status) return false;
+    return true;
   }
 
   //Update a game
@@ -63,7 +63,6 @@ export class GamesService {
     gameDto.description ? game.description = gameDto.description : game.description = game.description;
     gameDto.image ? game.image = gameDto.image : game.image = game.image;
     gameDto.storage ? game.storage = gameDto.storage : game.storage = game.storage;
-    gameDto.release_date ? game.release_date = gameDto.release_date : game.release_date = game.release_date;
 
     await this.gameRepository.save(game);
     return new MessageDto(`Game ${gameDto.name} updated`);

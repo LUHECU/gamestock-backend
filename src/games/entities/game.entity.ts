@@ -1,9 +1,9 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'games'})
 export class GameEntity {
 
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
@@ -17,9 +17,6 @@ export class GameEntity {
 
     @Column()
     storage: string;
-
-    @Column({type: 'date'})
-    release_date: Date;
 
     @Column({type: 'boolean', default: true})
     status: boolean;

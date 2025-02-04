@@ -15,7 +15,4 @@ export class CreateGameDto {
 
     @IsString()
     storage!: string;
-    
-    @IsDate()
-    release_date!: Date;
 }
