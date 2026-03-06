@@ -15,7 +15,7 @@ It provides endpoints for creating, updating, retrieving, and deleting game reco
 - NestJS
 - Node.js
 - TypeScript
-- PostgreSQL (or the DB you used)
+- PostgreSQL
 - REST APIs
 
 ## Architecture Overview
