@@ -1,8 +1,3 @@
----
-
-# README para el Backend (NestJS)
-
-```md
 # GameStock Backend
 
 GameStock Backend is a RESTful API built with NestJS that manages a video game catalog.  
@@ -52,7 +47,7 @@ cd gamestock-backend
 Install dependencies: npm install
 Run the development server: npm run start:dev
 The API will run at: The API will run at:
-
+```
 
 ## Future Improvements
 
